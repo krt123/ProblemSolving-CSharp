@@ -1,0 +1,27 @@
+public class Solution {
+    public int Reverse(int x) {
+        int rev = 0;
+        int prev = 0;
+        
+        bool negativeFlag = false;
+        if (x < 0)
+        {
+            negativeFlag = true;
+            x = -x ;
+        }
+        
+        while(x != 0)
+        {            
+            int curr =  x%10;
+            rev = rev*10 + curr;
+            if ((rev - curr)/10 != prev)
+            {
+                return 0;
+            }
+            prev = rev;
+            x = x/10;         
+            
+        }
+        return (negativeFlag == true)? -rev : rev;
+    }
+}
